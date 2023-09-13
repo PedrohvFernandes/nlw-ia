@@ -1,0 +1,44 @@
+# Nome para requisição:
+# @name get-prompts
+GET http://localhost:3333/prompts
+
+# O que separa uma requisicao da outra é: ###
+
+###
+
+# Para fazer upload do video ja no formato .mp3
+# @name post-upload-videos
+POST http://localhost:3333/videos
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="example.mp3"
+Content-Type: audio/mpeg
+
+< ./example.mp3
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+
+# Apos fazer o upload do video, pegar o id do video e colocar na url:
+# @name post-create-transcription
+POST http://localhost:3333/videos/dd46d293-b947-4281-987b-2441aabbcdb8/transcription
+Content-Type: application/json
+
+{
+  "prompt": "Jesus, João batista, Jacó, Jerusalém"
+}
+
+###
+
+# @name post-generate-ai-complete
+POST http://localhost:3333/ai/complete
+Content-Type: application/json
+
+# Esse {transcription} sera substituido pelo texto da transcrição do audio
+{
+  "videoId": "dd46d293-b947-4281-987b-2441aabbcdb8",
+  "temperature": 0.5,
+  "template": "Gere um resumo sucinto da transição do vídeo informada a seguir: '''{transcription}'''"
+}
+###
