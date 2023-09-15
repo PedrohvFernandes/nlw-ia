@@ -19,7 +19,7 @@ export async function createTranscriptionRoute(app: FastifyInstance) {
       prompt: z.string()
     })
 
-    // O prompt no caso são palavras que o usuario fala e que são dificies da ia entender, com isso isso ira facilitar para que ela entenda com mais faciliade para fazer a transcrição
+    // O Prompt de transcrição no caso são palavras que o usuario fala e que são dificies da ia entender, com isso isso ira facilitar para que ela entenda com mais faciliade para fazer a transcrição
     const { prompt } = bodySchema.parse(request.body)
 
     const video = await prisma.video.findUniqueOrThrow({

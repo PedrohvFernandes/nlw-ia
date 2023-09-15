@@ -35,10 +35,16 @@ Content-Type: application/json
 POST http://localhost:3333/ai/complete
 Content-Type: application/json
 
-# Esse {transcription} sera substituido pelo texto da transcrição do audio
+# Esse {transcription} sera substituido pelo texto da transcrição do audio gerado pela IA
+# {
+#   "videoId": "dd46d293-b947-4281-987b-2441aabbcdb8",
+#   "temperature": 0.5,
+#   "template": "Gere um resumo sucinto da transição do vídeo informada a seguir: '''{transcription}'''"
+# }
+
 {
   "videoId": "dd46d293-b947-4281-987b-2441aabbcdb8",
   "temperature": 0.5,
-  "template": "Gere um resumo sucinto da transição do vídeo informada a seguir: '''{transcription}'''"
+  "prompt": "Gere um resumo sucinto da transição do vídeo informada a seguir: '''{transcription}'''"
 }
 ###
