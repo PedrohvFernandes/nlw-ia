@@ -9,8 +9,8 @@ import { VideoInputForm } from './components/video-input-form'
 
 export function App() {
   const [videoId, setVideoId] = useState<string | null>(null)
-  const [input, setInput] = useState<string | null>(null)
-  const [completion, setCompletion] = useState<string | null>(null)
+  const [input, setInput] = useState<string>('')
+  const [completion, setCompletion] = useState<string>('')
   const [eventInputChange, setEventInputChange] = useState<React.ChangeEvent<HTMLTextAreaElement> | React.ChangeEvent<HTMLInputElement> | null>(null)
 
   function updateInputTextAI(input: string) {
@@ -26,7 +26,6 @@ export function App() {
     setEventInputChange(event)
     setInput(event.target.value)
   }
-
   return (
     <div className="min-h-screen flex flex-col">
       <header className="px-6 py-3 flex items-center justify-between border-b">
@@ -49,7 +48,7 @@ export function App() {
             <Textarea
               placeholder="Inclua a prompt para a IA..."
               className="resize-none p-4 leading-relaxed"
-              value={input as string}
+              value={input}
               // onChange={event => setInput(event.target.value)} // infelizmente isso nao funciona quando se usar o useCompletion, tem que usar o hook dela e das coisas que vem no hook, como loading, completion, input, setInput, handleInputChange, handleSubmit...
               onChange={handleInputChange}
             />
@@ -57,7 +56,7 @@ export function App() {
               placeholder="Resultado gerado pela IA..."
               className="resize-none p-4 leading-relaxed"
               readOnly
-              value={completion as string}
+              value={completion}
             />
           </div>
 
