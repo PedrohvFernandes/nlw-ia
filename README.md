@@ -1,9 +1,3 @@
-# NLW-IA 2023 - Rocketseat <img  align='center' width='100px' src='https://yt3.ggpht.com/ytc/AKedOLQkXnYChXAHOeBQLzwhk1_BHYgUXs6ITQOakoeNoQ=s176-c-k-c0x00ffffff-no-rj'/>
-
-<p align='center'>
-  <img src='https://storage.googleapis.com/star-lab/nlw-ia/OG.jpg'/>
-</p>
-
 ## Sobre:
 
 ### Precisa de uma aplicação para te sugerir algo sobre um video seu, seja um titulo, descrição... então te apresento um projeto que tem por tras duas melhores IA ja inventadas da OPENAI, o chatgpt e a whisper-1, as duas trabalhando lado a lado conseguem gerar informações do seu video de acordo com sua necessidade
